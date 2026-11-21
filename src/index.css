@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'katex/dist/katex.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+
+  /* Semantic Theme Tokens (Sunny Sky & Cloud Palette) */
+  --bg-canvas: #FFFFFF;
+  --surface-card: #FFFFFF;
+  --surface-card-subtle: #F4F8FC;
+  --surface-hover: #EBF3FA;
+  --surface-active: #E0EEF8;
+
+  --text-primary: #181615;
+  --text-secondary: #48433C;
+  --text-muted: #7E786F;
+  --text-on-accent: #181615;
+
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --border-medium: rgba(0, 0, 0, 0.09);
+
+  /* Signature Brand Accent Tokens (Sunshine Yellow & Cartoon Crimson from Logo) */
+  --accent-primary: #FCD702;
+  --accent-hover: #EFCB00;
+  --accent-red: #D60103;
+  --accent-red-hover: #B70002;
+  --accent-soft: rgba(252, 215, 2, 0.20);
+  --accent-medium: rgba(252, 215, 2, 0.35);
+  --accent-glow: rgba(252, 215, 2, 0.45);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Text selection in Accent tint */
+::selection {
+  background-color: var(--accent-soft);
+  color: var(--accent-hover);
+}
+
+/* Cloud drift animations: smooth seamless horizontal glide from right to left */
+@keyframes cloudDriftLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-cloud-drift-slow {
+  animation: cloudDriftLeft 75s linear infinite;
+  will-change: transform;
+}
+
+.animate-cloud-drift-fast {
+  animation: cloudDriftLeft 48s linear infinite;
+  will-change: transform;
+}
